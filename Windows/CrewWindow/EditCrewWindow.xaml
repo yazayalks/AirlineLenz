@@ -1,0 +1,42 @@
+﻿<Window x:Class="AirlineLenz.Windows.CrewWindow.EditCrewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AirlineLenz.Windows.CrewWindow"
+        mc:Ignorable="d"
+        Title="Редактирование экипажа" Height="450" Width="800">
+    <StackPanel Orientation="Horizontal">
+        <StackPanel>
+            <StackPanel Width="350">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Название" HorizontalAlignment="Left" VerticalAlignment="Center" Width="160" />
+                    <TextBox TextWrapping="Wrap" VerticalAlignment="Center" Width="120"
+                         Text="{Binding Path=Crew.Title}" />
+            
+                </StackPanel>
+
+                <Button Content="Сохранить" Click="SaveButton" Width="100" />
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Margin="10" Width="Auto">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Добавить" Click="AddEmployeeButtonClick" Width="Auto"/>
+                <Button Content="Удалить" Click="DeleteEmployeeButtonClick" Width="Auto"/>
+            </StackPanel>
+            <DataGrid x:Name="FlightCrewGrid" AutoGenerateColumns="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding FirstName}" Header="Имя"
+                                        Width="auto" />
+                    <DataGridTextColumn Binding="{Binding LastName}" Header="Фамилия"
+                                        Width="auto" />
+                    <DataGridTextColumn Binding="{Binding Patronymic}" Header="Отчество"
+                                        Width="auto" />
+                    <DataGridTextColumn Binding="{Binding EmployeeType}" Header="Должность"
+                                        Width="auto" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+
+    </StackPanel>
+</Window>
